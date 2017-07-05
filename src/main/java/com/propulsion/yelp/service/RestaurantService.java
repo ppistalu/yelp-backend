@@ -11,7 +11,7 @@ public interface RestaurantService {
 
 	List<Restaurant> findAll();
 	
-	List<Restaurant> findByName(String name);
+	List<Restaurant> findByNameContaining(String name);
 	
 	Restaurant findById(Long id);
 	

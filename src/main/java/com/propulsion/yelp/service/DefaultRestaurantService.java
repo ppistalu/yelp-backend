@@ -26,13 +26,13 @@ public class DefaultRestaurantService implements RestaurantService {
 	}
 
 	@Override
-	public List<Restaurant> findByName(String name) {
-		return this.restaurantRepository.findByName(name);
+	public Restaurant findById(Long id) {
+		return this.restaurantRepository.findById(id);
 	}
 
 	@Override
-	public Restaurant findById(Long id) {
-		return this.restaurantRepository.findById(id);
+	public List<Restaurant> findByNameContaining(String name) {
+		return this.restaurantRepository.findByNameContaining(name);
 	}
 
 }
