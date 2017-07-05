@@ -32,8 +32,8 @@ public class RestaurantRepositoryTests {
     }
     
     @Test
-    public void findByName() {
-    	List<Restaurant> restaurants = repository.findByName("Petra");
+    public void findByNameContaining() {
+    	List<Restaurant> restaurants = repository.findByNameContaining("Pet");
     	assertThat(restaurants.size()).isEqualTo(1);
     	assertThat(restaurants.get(0).getName()).isEqualTo("Petra");
     	assertThat(restaurants.stream()

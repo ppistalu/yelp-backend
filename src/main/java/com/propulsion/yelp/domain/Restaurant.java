@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,13 +30,20 @@ public class Restaurant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@JsonView(JsonViews.Summary.class)
 	private String name;
+	@JsonView(JsonViews.Summary.class)
 	private String address;
+	@JsonView(JsonViews.Summary.class)
 	private String email;
+	@JsonView(JsonViews.Summary.class)
 	private String phone;
+	@JsonView(JsonViews.Details.class)
 	private String logo;
+	@JsonView(JsonViews.Summary.class)
 	private String url;
 	@OneToMany(mappedBy="restaurant", cascade = CascadeType.REMOVE)
+	@JsonView(JsonViews.Details.class)
 	private List<Review> reviews = new ArrayList<>();
 	
 	public Restaurant() {

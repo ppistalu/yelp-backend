@@ -1,5 +1,6 @@
 package com.propulsion.yelp.web;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,6 +36,12 @@ public class RestUserControllerTests {
 		String json = "{\"firstName\":\"Petra\",\"lastName\":\"Edited\",\"userId\":1}";
 		
 		mockMvc.perform(put("/api/user/{id}",1).contentType(APPLICATION_JSON).content(json)).andExpect(status().isNoContent());
+	
+		//assertThat(repository.findById(1L).getLastName()).isEqualTo("Edited");
+		
+		assertThat(repository.findOne(1L)).isNull();
+		
+
 	}
 
 }

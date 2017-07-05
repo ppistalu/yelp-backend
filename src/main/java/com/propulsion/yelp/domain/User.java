@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,7 +23,9 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@JsonView(JsonViews.Details.class)
 	private String firstName;
+	@JsonView(JsonViews.Details.class)
 	private String lastName;
 	@Column(unique=true)
 	private String email;

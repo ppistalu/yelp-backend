@@ -2,6 +2,7 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.4.RELEASE'
 		hibernateVersion       = '5.2.8.Final'
+		jacksonDateTimeVersion     = '2.8.7'
 	}
 	repositories {
 		mavenCentral()
@@ -10,6 +11,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -35,4 +37,5 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile("org.hibernate:hibernate-java8:${hibernateVersion}")
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDateTimeVersion}')
 }

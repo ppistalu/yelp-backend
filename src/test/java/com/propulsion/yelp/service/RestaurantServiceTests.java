@@ -32,7 +32,7 @@ public class RestaurantServiceTests {
 
 	@Test
 	public void findByName() {
-		assertThat(service.findByName("Petra").size()).isEqualTo(1);
+		assertThat(service.findByNameContaining("Pe").size()).isEqualTo(1);
 	}
 	
 	@Test
